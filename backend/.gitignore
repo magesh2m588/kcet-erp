@@ -1,0 +1,27 @@
+# Secrets and Environment configuration
+.env
+.env.*
+!.env.example
+
+# Databases
+*.sqlite3
+*.db
+
+# Python Bytecode and Cache
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Static files & Media uploads
+/staticfiles/
+/media/uploads/
+
+# Virtual environments
+venv/
+.venv/
+env/
+
+# IDE / OS junk
+.vscode/
+.idea/
+.DS_Store
