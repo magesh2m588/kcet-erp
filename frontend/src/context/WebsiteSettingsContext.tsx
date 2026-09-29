@@ -1,5 +1,6 @@
 import React, { createContext, useContext, useEffect, useState, useCallback } from 'react';
 import type { WebsiteSettings } from '../types';
+import { API_BASE_URL } from '../services/api';
 
 // ── Default fallback so the app never shows blank ───────────────────────────
 const DEFAULT_SETTINGS: WebsiteSettings = {
@@ -63,7 +64,7 @@ export const WebsiteSettingsProvider: React.FC<{ children: React.ReactNode }> = 
 
   const fetchSettings = useCallback(async () => {
     try {
-      const res = await fetch('http://127.0.0.1:8000/api/website-settings/', {
+      const res = await fetch(`${API_BASE_URL}/website-settings/`, {
         headers: { 'Content-Type': 'application/json' },
       });
       if (res.ok) {

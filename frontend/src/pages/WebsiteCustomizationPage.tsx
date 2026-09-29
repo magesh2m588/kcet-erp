@@ -1,7 +1,7 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { useAuth } from '../context/AuthContext';
 import { useWebsiteSettings } from '../context/WebsiteSettingsContext';
-import { apiRequest, getAuthToken } from '../services/api';
+import { apiRequest, getAuthToken, API_BASE_URL } from '../services/api';
 import type { WebsiteSettings } from '../types';
 import {
   Building2, Image, Palette, MapPin, LogIn,
@@ -208,7 +208,7 @@ export const WebsiteCustomizationPage: React.FC = () => {
       const formData = new FormData();
       formData.append('logo', logoFile);
       const token = getAuthToken();
-      const res = await fetch('http://127.0.0.1:8000/api/admin/website-settings/logo/', {
+      const res = await fetch(`${API_BASE_URL}/admin/website-settings/logo/`, {
         method: 'POST',
         headers: token ? { Authorization: `Token ${token}` } : {},
         body: formData,
@@ -278,7 +278,7 @@ export const WebsiteCustomizationPage: React.FC = () => {
       const formData = new FormData();
       formData.append('background', bgFile);
       const token = getAuthToken();
-      const res = await fetch('http://127.0.0.1:8000/api/admin/website-settings/background/', {
+      const res = await fetch(`${API_BASE_URL}/admin/website-settings/background/`, {
         method: 'POST',
         headers: token ? { Authorization: `Token ${token}` } : {},
         body: formData,
